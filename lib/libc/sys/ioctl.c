@@ -99,7 +99,7 @@ _ioctl(int fd, unsigned long com, ...)
 		 * expect an address. This is done to skip the copyin in
 		 * user_ioctl, and handle it manually in the ioctl handler.
 		 */
-		if (cheri_getlen((void*)ap) >= sizeof(void *))
+		if (cheri_getlength((void *)ap) >= sizeof(void *))
 			data = va_arg(ap, void *);
 		else
 			data = NULL;
